@@ -1,13 +1,15 @@
+import { useState } from 'react'
 import './App.css'
 
 function App() {
+  const [devs, setDevs] = useState(['Jessica', 'Hillary', 'Stephen', 'Jamie'])
+
   return (
     <>
       <h1>👩‍💻 Developers for Hire 👩‍💻</h1>
-      <Developer name="Jessica" />
-      <Developer name="Hillary" />
-      <Developer name="Stephen" />
-      <Developer name="Jamie" />
+      {devs.map((dev, index) => (
+        <Developer name={dev} key={index} />
+      ))}
     </>
   )
 }

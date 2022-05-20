@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import developerData from './developer-data'
+// https://fontawesome.com/docs/web/use-with/react/
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretRight, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
@@ -22,10 +23,31 @@ function App() {
 }
 
 function Developer({ name, expertise }) {
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  const handleExpanded = () => {
+    setIsExpanded(!isExpanded)
+  }
+
   return (
     <div className="dev">
       <p className="dev--name">{name}</p>
-      <p>{expertise}</p>
+      {isExpanded ? (
+        <>
+          <FontAwesomeIcon
+            icon={faCaretDown}
+            className="font-icon"
+            onClick={handleExpanded}
+          />
+          <p>{expertise}</p>
+        </>
+      ) : (
+        <FontAwesomeIcon
+          icon={faCaretRight}
+          className="font-icon"
+          onClick={handleExpanded}
+        />
+      )}
     </div>
   )
 }

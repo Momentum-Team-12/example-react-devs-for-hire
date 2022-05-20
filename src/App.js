@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import developerData from './developer-data'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretRight, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
 function App() {
   const [devs, setDevs] = useState(developerData)

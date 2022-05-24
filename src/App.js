@@ -2,10 +2,12 @@ import { useState } from 'react'
 import './App.css'
 import developerData from './developer-data'
 // https://fontawesome.com/docs/web/use-with/react/
-import { Developer } from './components/Developer'
+import Developer from './components/Developer'
 
 function App() {
   const [devs, setDevs] = useState(developerData)
+  const [selectedDev, setSelectedDev] = useState(null)
+  //setSelectedDev('some value')
 
   return (
     <>
@@ -18,6 +20,8 @@ function App() {
               expertise={dev.expertise}
               key={index}
               gitHubName={dev.gitHub}
+              setSelectedDev={setSelectedDev}
+              isSelected={selectedDev === dev.name}
             />
           )
         }

@@ -3,7 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretRight, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
-export function Developer({ name, expertise, gitHubName }) {
+const Developer = ({
+  name,
+  expertise,
+  gitHubName,
+  setSelectedDev,
+  isSelected,
+}) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const [repos, setRepos] = useState([])
 
@@ -22,7 +28,7 @@ export function Developer({ name, expertise, gitHubName }) {
   }, [])
 
   return (
-    <div className="dev">
+    <div className="dev" onClick={() => setSelectedDev(name)}>
       <p className="dev--name">{name}</p>
       {isExpanded ? (
         <>
@@ -54,3 +60,5 @@ export function Developer({ name, expertise, gitHubName }) {
     </div>
   )
 }
+
+export default Developer

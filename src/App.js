@@ -9,6 +9,19 @@ function App() {
   const [selectedDev, setSelectedDev] = useState(null)
   //setSelectedDev('some value')
 
+  if (selectedDev) {
+    const dev = developerData.find((dev) => dev.name === selectedDev)
+    return (
+      <Developer
+        name={dev.name}
+        expertise={dev.expertise}
+        key={dev.name}
+        gitHubName={dev.gitHub}
+        setSelectedDev={setSelectedDev}
+        isSelected={selectedDev === dev.name}
+      />
+    )
+  }
   return (
     <>
       <h1>👩‍💻 Developers for Hire 👩‍💻</h1>
